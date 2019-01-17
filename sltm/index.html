@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TFjs LSTM</title>
+</head>
+
+<body>
+  <p>
+    TensorFlow.js example: Trains LSTM model to perform the following sequence task:
+  </p>
+  <p>
+    Given a sequence of 0s and 1s of fixed length (10), output a single binary number (0 or 1).
+  </p>
+  <p>
+    The training data has the following pattern:
+  </p>
+  <p>
+    The output (i.e., label) is 1 if there are four or more consecutive and identical
+    items (either 0s or 1s) in the input sequence. Otherwise, the output is 0. For example:
+  </p>
+  <ul>
+    <li>Sequence [0, 1, 0, 1, 0, 1, 0, 0, 1, 0] --> Label: 0</li>
+    <li>Sequence [0, 1, 1, 1, 1, 0, 1, 0, 0, 1] --> Label: 1</li>
+    <li>Sequence [0, 0, 0, 0, 0, 0, 1, 0, 0, 1] --> Label: 1</li>
+  </ul>
+  <hr />
+  <div>
+    <table width="400">
+      <tr>
+        <td>Train Examples:</td>
+        <td>
+          <input id="train-examples" value="500"></input>
+        </td>
+      </tr>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <div>
+      <button id="start-training">Training & Predict</button>
+      <button id="cancel-training">Stop</button>
+    </div>
+  </div>
+  <hr />
+  <div>
+    <table width="400">
+      <tr>
+        <td>Epoch:</td>
+        <td>
+          <input id="train-epoch" readonly="true"></input>
+        </td>
+      </tr>
+      <tr>
+        <td>Training loss:</td>
+        <td>
+          <input id="train-loss" readonly="true"></input>
+        </td>
+      </tr>
+      <tr>
+        <td>Training accuracy:</td>
+        <td>
+          <input id="train-acc" readonly="true"></input>
+        </td>
+      </tr>
+      <tr>
+        <td>Validation loss:</td>
+        <td>
+          <input id="val-loss" readonly="true"></input>
+        </td>
+      </tr>
+      <tr>
+        <td>Validation accuracy:</td>
+        <td>
+          <input id="val-acc" readonly="true"></input>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <hr />
+  <div>
+    <table width="400">
+      <tr>
+        <td>Input:</td>
+        <td>
+          <textarea readonly="true" rows="4" cols="50">
+[0, 1, 0, 1, 0, 1, 0, 0, 1, 0]
+[0, 1, 1, 1, 1, 0, 1, 0, 0, 1]
+[0, 0, 0, 0, 0, 0, 1, 0, 0, 1]
+          </textarea>
+        </td>
+      </tr>
+      <tr>
+          <td>Results:</td>
+          <td>
+            <input id="results" value="" readonly="true"></input>
+          </td>
+        </tr>
+    </table>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.1"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
